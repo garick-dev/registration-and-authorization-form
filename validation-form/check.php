@@ -1,4 +1,5 @@
 <?php
+
    $login = filter_var(trim($_POST['login']),
    FILTER_SANITIZE_STRING);
    $name = filter_var(trim($_POST['name']),
@@ -23,7 +24,7 @@
    $pass = md5($pass."qg24gyl361fv");
 
      //подключение к БД
-   require "../blocks/connect.php"
+     $mysql = new mysqli('localhost', 'root', 'root', 'register-bd');
 
    $mysql->query("INSERT INTO `users` (`login`, `pass`, `name`) VALUES ('$login','$pass','$name')");
 

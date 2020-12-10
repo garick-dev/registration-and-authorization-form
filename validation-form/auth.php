@@ -8,7 +8,7 @@
    $pass = md5($pass."qg24gyl361fv");
 
    //подключение к БД
-   require "../blocks/connect.php"
+   $mysql = new mysqli('localhost', 'root', 'root', 'register-bd');
    
 
    $result = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
